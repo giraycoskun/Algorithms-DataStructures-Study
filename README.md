@@ -13,8 +13,9 @@ My study of various algorithms and data structures via Coding Websites such as H
 - **Google's KickStart**
   - 2021
   - 2022
+    - Round B
 
 - **LeetCode**
-  
 
-
+- **Foobar**
+  - 
