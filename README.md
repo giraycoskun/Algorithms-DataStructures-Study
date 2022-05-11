@@ -15,7 +15,11 @@ My study of various algorithms and data structures via Coding Websites such as H
   - 2022
     - Round B
 
+
 - **LeetCode**
 
+
 - **Foobar**
-  - 
+
+## LeetCode Statistics
+![Leetcode Stats](https://leetcode.card.workers.dev/?username=giraycoskun&theme=nord)

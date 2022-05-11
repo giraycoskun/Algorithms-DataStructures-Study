@@ -1,6 +1,5 @@
 # INFINITY AREA
 # https://codingcompetitions.withgoogle.com/kickstart/round/00000000008caa74/0000000000acf079
-# SOLVED
 
 PI = 3.141592653589793
 test_count = int(input())
