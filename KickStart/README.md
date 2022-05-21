@@ -1,1 +1,0 @@
-# Study via Google Kick Start Coding Competition
