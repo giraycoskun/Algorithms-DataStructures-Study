@@ -59,3 +59,7 @@ def arrayToList(arr):
     for i in range(0, len(arr), 1):
         root = insert(root, arr[i])
     return root
+
+
+def createMatrix(row, col, val):
+    return [[val for _ in range(col)] for _ in range(row)]
