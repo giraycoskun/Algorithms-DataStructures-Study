@@ -2,42 +2,40 @@
 # giraycoskun
 # Problem 567: Permutation in String
 # Medium
+# Sliding Window and HashMap
 
 def checkInclusion(s1: str, s2: str) -> bool:
-    d = {}
-    for c in s1:
-        if c in d:
-            d[c] += 1
-        else:
-            d[c] = 1
-    i = 0
-    j = 0
-    for idx in range(len(s2)):
-        if s2[idx] in d and d[s2[idx]] > 0:
-            j +=1
-            d[s2[idx]] -= 1
-        else:
-            i += 1
-            while i < idx:
-                d[s2[i]] += 1
-                i += 1
-            i += 1
-            j -= 1
-        if (j-i) == len(s1):
+    if len(s1) > len(s2):
+        return False
+    s1_map = [0]*26
+    s2_map = [0]*26
+    for i in range(len(s1)):
+        num1 = ord(s1[i]) - ord('a')
+        num2 = ord(s2[i]) - ord('a')
+        s1_map[num1] += 1
+        s2_map[num2] += 1
+
+    for i in range(len(s1), len(s2)):
+        if s1_map == s2_map:
             return True
-    return False
+        num1 = ord(s2[i]) - ord('a')
+        num2 = ord(s2[i-len(s1)]) - ord('a')
+        s2_map[num1] += 1
+        s2_map[num2] -= 1
+
+    return s1_map == s2_map
 
 
 if __name__ == '__main__':
     s1 = "ab"
     s2 = "eidbaooo"
     test = checkInclusion(s1, s2)
-    print(f"TEST 1: {test}")
+    print(f"TEST 1: {test}")  # TRUE
 
     s1 = "ab"
     s2 = "eidboaoo"
     test = checkInclusion(s1, s2)
-    print(f"TEST 2: {test}")
+    print(f"TEST 2: {test}")  # FALSE
 
     s1 = "ab"
     s2 = "ab"
@@ -47,9 +45,9 @@ if __name__ == '__main__':
     s1 = "hello"
     s2 = "ooolleoooleh"
     test = checkInclusion(s1, s2)
-    print(f"TEST 4: {test}")
+    print(f"TEST 4: {test}")  # FALSE
 
     s1 = "adc"
     s2 = "dcda"
     test = checkInclusion(s1, s2)
-    print(f"TEST 5: {test}")
+    print(f"TEST 5: {test}")  # TRUE
